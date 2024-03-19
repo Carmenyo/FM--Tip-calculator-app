@@ -24,11 +24,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let tipPercentage;
 
+        // Eliminar la clase active-tip de todos los elementos .tips
+        tipButtons.forEach(button => {
+            button.classList.remove('active-tip');
+        });
+
         // Obtener el porcentaje de propina seleccionado
         if (this.classList.contains('tip-custom')) {
             tipPercentage = parseFloat(customTipInput.value);
         } else {
             tipPercentage = parseFloat(this.textContent);
+            // Agregar la clase active-tip al elemento clicado
+            this.classList.add('active-tip');
         }
 
         // Calcular la propina y el total
@@ -55,5 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
         customTipInput.value = '';
         tipAmountElement.textContent = '$0.00';
         totalAmountElement.textContent = '$0.00';
+
+        // Eliminar la clase active-tip de todos los elementos .tips
+        tipButtons.forEach(button => {
+            button.classList.remove('active-tip');
+        });
+
+        // Establecer el porcentaje predeterminado como activo (15%)
+        document.querySelector('.tip-15').classList.add('active-tip');
     });
 });
+
