@@ -116,7 +116,6 @@ input{
     font-size: 28px;
     color: var(--StrongCyan);
     font-weight: bolder;
-
 }
 
 .reset{
@@ -172,11 +171,9 @@ input{
         margin-bottom: 2.4rem;
     }
     .tip{
-       
         grid-template-columns:  115px 115px 115px;
         row-gap: 1.2rem;
         column-gap: 17px;
-        
     }
     .tips{
         height: 47px;
