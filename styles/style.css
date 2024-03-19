@@ -140,6 +140,7 @@ input{
 }
 .error{
     display: none ;
+    color: red;
 }
 
 /* MEDIA QUERY */
