@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png">
-  
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- STYLES -->
+<link rel="stylesheet" href="./styles/style.css">
+
   <title>Frontend Mentor | Tip calculator app</title>
 </head>
 <body>
@@ -17,14 +25,14 @@
 
   <section class="calculator">
     <div class="partOne">
-      <label for="Bill"></label>
+      <label for="Bill">Bill</label>
       <input type="number" class="input bill-input" id="bill-input" >
       <label for="">Select Tip %</label>
 
 <div class="tip">
   <div class="tips tip-5">5%</div>
   <div class="tips tip-10">10%</div>
-  <div class="tips tip-15">15%</div>
+  <div class="tips tip-15 active-tip" >15%</div>
   <div class="tips tip-25">25%</div>
   <div class="tips tip-50">50%</div>
 
