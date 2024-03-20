@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Obteniendo elementos del DOM
     const billInput = document.getElementById('bill-input');
     const tipButtons = document.querySelectorAll('.tips');
-    const customTipInput = document.querySelector('.tip-custom');
+    const customTipInput = document.querySelector('.custom-input'); // Cambiado el selector
     const peopleInput = document.querySelector('.people-input');
     const tipAmountElement = document.getElementById('tip-amount');
     const totalAmountElement = document.getElementById('total-amount');
@@ -30,16 +30,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Obtener el porcentaje de propina seleccionado
-        if (this.classList.contains('tip-custom')) {
-            tipPercentage = parseFloat(customTipInput.value);
+        if (this === customTipInput) {
+            // Verificar si el valor es válido
+            if (customTipInput.value.trim() !== '') {
+                tipPercentage = parseFloat(customTipInput.value) / 100;
+            } else {
+                // Si no hay valor, usar el porcentaje predeterminado (15%)
+                tipPercentage = 0.15;
+            }
+            // Agregar la clase active-tip al elemento .tip-custom
+            document.querySelector('.tip-custom').classList.add('active-tip');
         } else {
-            tipPercentage = parseFloat(this.textContent);
+            tipPercentage = parseFloat(this.textContent) / 100;
             // Agregar la clase active-tip al elemento clicado
             this.classList.add('active-tip');
         }
 
         // Calcular la propina y el total
-        const tipAmount = (billAmount * tipPercentage) / 100 / numberOfPeople;
+        const tipAmount = (billAmount * tipPercentage) / numberOfPeople;
         const totalAmount = (billAmount / numberOfPeople) + tipAmount;
 
         // Actualizar los elementos HTML con los resultados
@@ -72,4 +80,3 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.tip-15').classList.add('active-tip');
     });
 });
-
